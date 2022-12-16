@@ -8,8 +8,8 @@ const Billing = () => {
     var total=0.0;
     cartCtx.totalPrice===0?total=0:total = cartCtx.totalPrice + shipping;
 
-    const [payment, setPayment]=useState();
-    const bool=payment==='ccp'?true:false;
+    // const [payment, setPayment]=useState();
+    // const bool=payment==='ccp'?true:false;
 
   return (
     <div className='billing'>

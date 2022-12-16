@@ -23,11 +23,11 @@ import CartContext from '../../store/CartContext';
 
 
 //................
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //...............
 
 function Copyright() {
-  const cartCtx = useContext(CartContext);
+  
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
@@ -60,12 +60,14 @@ const theme = createTheme({
 });
 
 export default function Checkout() {
-
+  const cartCtx = useContext(CartContext);
+  // console.log(cartCtx);
   //.......once th payment is done go back to home page
   const navigate = useNavigate();
   const navigateHome = () => {
     // 👇️ navigate to /
     navigate('/');
+    cartCtx.clearCart();
   };
   //.....................................
   const [activeStep, setActiveStep] = React.useState(0);
@@ -131,12 +133,12 @@ export default function Checkout() {
                                     marginLeft:"auto",
                                     display:"flex",
                                     cursor: "pointer"}} 
-                                    // onClick={()=>{ navigateHome; () => clearCart }}
-                                    onClick={navigateHome}
+                                    // onClick={()=>{ ()=>navigateHome(); ()=>cartCtx.clearCart() }}
+                                    onClick={ ()=>navigateHome()}
         >
                       العودة إلى المتجر
                   </button>
-              {/* </div> */}
+              
 
            
               

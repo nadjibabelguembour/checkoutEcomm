@@ -46,10 +46,13 @@ const reducerFcn = (state,action) => {
       updateProdcuts[indexProduct] = updateCurrentProduct
     }
   }
-  if (action.type=== "CLEAR_CART"){
-
-    return{...state, products:[] }
-  }
+  else if (action.type=== "CLEAR_CART"){
+    updateProdcuts = [];
+    updateTotalPrice=0;
+    
+    }
+  
+  
 
   return {
     products: updateProdcuts,
@@ -70,7 +73,7 @@ const CartProvider = ({children}) => {
   }
   //.............clear cart .................
   const clearCartFnc = () =>{
-    return dispatch({type: 'CLEAR_CART'})
+    dispatch({type: 'CLEAR_CART'})
   }
   //.........................................
 
